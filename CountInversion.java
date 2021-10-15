@@ -4,7 +4,10 @@ public class CountInversion {
     public static void main(String[] args) {
         long[] arr={8,3,2,1,0};
         long ans=countInversion(arr, 0, 4);
+        int[] array={8,3,2,1,0};
+        int count=countInversion(array);
         System.out.println(ans);
+        System.out.println(count);
     }
 
     public static long countInversion(long[] arr, int l, int r){
@@ -42,5 +45,19 @@ public class CountInversion {
             arr[k++]=right[j++];
         }
         return swap;
+    }
+
+
+    public static int countInversion(int[] arr){
+        int count=0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i]>arr[j]){
+                    count++;
+                }
+            }
+        }
+
+        return count;
     }
 }
